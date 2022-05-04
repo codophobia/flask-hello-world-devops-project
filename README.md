@@ -37,21 +37,19 @@ In this project, we are going to build a simple [CI/CD](https://www.atlassian.co
 
 ## Create a project repository on Github
 
-Login to your github account and create a new repository.
+Login to your github account and create a new repository. Do make sure that you have give a unique name for the repository. It's good to add a README file, Python .gitignore template and chose a license.
 
-![create-github-repo](images/create-github-repo)
-
-Do make sure that you have give a unique name for the repository. It's good to add a README file, Python .gitignore template and chose a license.
+![create-github-repo](images/create_github_repo_border.png)
 
 Click on "create repository". Now, the repository is created.
 
-![github-repo](images/github-repo)
+![github-repo](images/github_repo_border.png)
 
 ## Clone the repository on your system
 
 Go to your Github repository. Click on the "Code" section and note down the HTTPS url for the project.
 
-![clone-url](images/clone-url)
+![clone-url](images/clone_url_border.png)
 
 Open terminal on your local machine(Desktop/laptop) and run the below commands.
 
@@ -62,7 +60,7 @@ cd flask-hello-world-devops-project
 
 Run ls command and you should be able to see a local copy of the github repository.
 
-![local-repo](images/local-repo)
+![local-repo](images/local_repo_border.png)
 
 ## Set up virtual Python environment
 
@@ -109,11 +107,11 @@ python app.py
 
 You should see below output after running the above command.
 
-[run-app](images/run-app)
+![run-app](images/run_app_border.png)
 
 Open your browser and visit [](http://127.0.0.1:5000). You should see "Hello world" printed on the browser.
 
-[hello-world-browser](images/hello-world-browser)
+![hello-world-browser](images/hello_world_browser_border.png)
 
 ## Write test cases using pytest
 
@@ -163,13 +161,13 @@ If you do not see any output, it means that everything is all right with code qu
 
 Try removing the spaces between comma in the app.py and then run flake8 command again. You should see the following errors.
 
-![flake-error](images/flake-error)
+![flake-error](images/flake_error_border.png)
 
 Add space again and you will not see the error now.
 
 ## Dockerise the application
 
-Install docker on your system. Follow [](https://docs.docker.com/get-docker/)
+Install docker on your system. Follow [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 
 Create a file named "Dockerfile" and add the below code.
 
@@ -228,11 +226,11 @@ git push origin main
 
 If you go to github repository, you should see the changes.
 
-![git-code-push](images/git-code-push)
+![git-code-push](images/git_code_push_border.png)
 
 ## Install Jenkins
 
-In this example, we will be installing jenkins on Ubuntu 20.04 Linux machine. If you have a different Linux distribution, follow steps mentioned at [](https://www.jenkins.io/doc/book/installing/linux/)
+In this example, we will be installing jenkins on Ubuntu 20.04 Linux machine. If you have a different Linux distribution, follow steps mentioned at [https://www.jenkins.io/doc/book/installing/linux/](https://www.jenkins.io/doc/book/installing/linux/)
 
 Run the following commands on the server.
 
@@ -257,17 +255,17 @@ sudo usermod -aG docker jenkins
 sudo service jenkins restart
 ```
 
-Open your browser and visit [](http://127.0.0.1:8080). If you have installed Jenkins on a Aws/Azure/GCP virtual machine, use the public address of the VM in place of localhost. If you are not able to access on cloud, make sure that port 8080 is added to inbound port.
+Open your browser and visit [http://127.0.0.1:8080](http://127.0.0.1:8080). If you have installed Jenkins on a Aws/Azure/GCP virtual machine, use the public address of the VM in place of localhost. If you are not able to access on cloud, make sure that port 8080 is added to inbound port.
 
-![jenkins-homepage](images/jenkins-homepage)
+![jenkins-homepage](images/jenkins_homepage_border.png)
 
 Copy the admin password from the path provided on the jenkins homepage and enter it. Click on "Install suggested plugins". It will take some time to install the plugins.
 
-![install-plugins](images/install-plugins)
+![install-plugins](images/install_plugins_border.png)
 
 Create a new user.
 
-![create-jenkins-user](images/create-jenkins-user)
+![create-jenkins-user](images/create_jenkins_user_border.png)
 
 You should now see the jenkins url. Click next and you should see the "Welcome to jenkins" page now.
 
@@ -277,15 +275,15 @@ We will now create a jenkins pipeline which will help in building, testing and d
 
 Click on "New Item" on the top left corner of the homepage.
 
-![new-item-jenkins](images/new-item-jenkins)
+![new-item-jenkins](images/new_item_jenkins_border.png)
 
 Enter a name, select "Pipeline" and click next.
 
-![select-jenkins-item](images/select-jenkins-item)
+![select-jenkins-item](images/select_jenkins_item_border.png)
 
 We now need to write a [pipeline script](https://www.jenkins.io/doc/book/pipeline/syntax/) in Groovy for building, testing and deploying code.
 
-[jenkins-script](images/jenkins-script)
+![jenkins-script](images/jenkins_script_border.png)
 
 Enter the below code in the pipeline section and click on "Save".
 
@@ -333,13 +331,13 @@ pipeline {
 
 Click on "Build Now" button at the left of the page.
 
-[build-now-jenkins](images/build-now-jenkins)
+![build-now-jenkins](images/build_now_jenkins_border.png)
 
 The pipelines should start running now and you should be able to see the status of the build on the page.
 
-[jenkins-build-status](images/jenkins-build-status)
+![jenkins-build-status](images/jenkins_build_status_border.png)
 
-If the build is successful, you can visit [](http://127.0.0.1:5000) and you should see "Hello world" on the browser. If you have installed Jenkins on a Aws/Azure/GCP virtual machine, use the public address of the VM in place of localhost. If you are not able to access on cloud, make sure that port 5000 is added to inbound port.
+If the build is successful, you can visit [http://127.0.0.1:5000](http://127.0.0.1:5000) and you should see "Hello world" on the browser. If you have installed Jenkins on a Aws/Azure/GCP virtual machine, use the public address of the VM in place of localhost. If you are not able to access on cloud, make sure that port 5000 is added to inbound port.
 
 ## Pipeline script from SCM
 
@@ -349,7 +347,7 @@ Go to "flask-hello-world" pipeline page and click on "Configure".
 
 Change definition from "Pipeline script" to "Pipeline script from SCM" and fill details on SCM and github url. Save the pipeline.
 
-[pipeline-from-scm](images/pipeline-from-scm)
+![pipeline-from-scm](images/pipeline_from_scm_border.png)
 
 Now, create a new file named "Jenkins" in our local code repository and add the below pipeline code.
 
@@ -392,6 +390,20 @@ pipeline {
     }
 }
 ```
+
+Push the code to github.
+
+```bash
+git add .
+git commit -m "Add Jenkinsfile"
+git push origin main
+```
+
+Go to "flask-hello-world" pipeline page and click on "Build Now"
+
+![jenkins-build-scm](jenkins_build_scm_border.png)
+
+
 
 
 
